@@ -1,0 +1,62 @@
+/************************************************
+*
+*   Main Stylesheet
+*   @version (1.0)
+*   @date (2023)
+*
+*   1.) GENERAL ___________________ @general
+*   2.) ANT DESIGN OVERRIDE _______ @antOverride
+*
+************************************************/
+  
+/************************************************
+   GENERAL                              @general
+
+   The base styles for the page, text
+   and links. Includes utility class styles
+************************************************/
+:root {
+  --font-serif: "Bacasime Antique", Helvetica, Arial, sans-serif; /* placeholder */
+  --font-sans-serif: "Poppins", Helvetica, Arial, sans-serif; /* placeholder */
+  --seasalt-white: #FAFAFA;
+  --salmon: #FE7B72;
+  --alice-blue: #E3F2FD;
+  --rich-black: #0F1020;
+  --dark-green: #042A2B;
+}
+
+.main-content {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+}
+
+.unclickable-item {
+  pointer-events: none;
+  cursor: default;
+  color: var(--salmon);
+}
+
+/************************************************
+   ANT DESIGN OVERRIDE               @antOverride
+
+   The base styles for the page, text
+   and links. Includes utility class styles
+************************************************/
+:where(.css-dev-only-do-not-override-14wwjjs).ant-layout-header {
+  padding-inline: 0;
+}
+:where(.css-dev-only-do-not-override-14wwjjs).ant-menu-dark.ant-menu-horizontal >.ant-menu-item-selected {
+  background-color: var(--salmon);
+}
+:where(.css-dev-only-do-not-override-14wwjjs).ant-menu-dark.ant-menu-horizontal >.ant-menu-item:hover {
+  background-color: #ed685f;
+}
+:where(.css-dev-only-do-not-override-14wwjjs).ant-menu-dark {
+  background-color: var(--dark-green);
+}
+.unclickable-item :where(.css-dev-only-do-not-override-14wwjjs).ant-typography {
+  color: var(--salmon);
+}
+

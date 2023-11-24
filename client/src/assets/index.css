@@ -1,0 +1,478 @@
+/************************************************
+*
+*   Main Stylesheet
+*   @version (1.0)
+*   @date (2023)
+*
+*   1.) GENERAL ___________________ @general
+*   2.) ANT DESIGN OVERRIDE _______ @antOverride
+*
+************************************************/
+  
+/************************************************
+   GENERAL                              @general
+
+   The base styles for the page, text
+   and links. Includes utility class styles
+************************************************/
+:root {
+  --font-rubik: "Rubik Glitch", Helvetica, Arial, sans-serif; 
+  --font-raleway: "Raleway", Helvetica, Arial, sans-serif; 
+  --font-quarrel: "Lovers Quarrel", Helvetica, Arial, sans-serif; 
+  --seasalt-white: #FAFAFA;
+  --salmon: #fe7b72;
+  --alice-blue: #E3F2FD;
+  --rich-black: #0F1020;
+  --dark-green: #042A2B;
+}
+.salmon a {
+  color: var(--salmon);
+  fill: var(--salmon);
+}
+.container {
+  padding: 1em;
+}
+p,
+.navigation-link {
+  font-family: var(--font-raleway);
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 1em;
+}
+.homepage-card {
+  flex-basis: calc(20% - 20px);
+  padding: 20px;
+  background-color: var(--salmon);
+  position: relative;
+  margin: 10px 10px 10em 10px;
+}
+.homepage-card img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  height: 22em;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+.homepage-card:hover {
+  cursor: pointer;
+}
+.homepage-card:hover img {
+  filter: grayscale(0%);
+}
+.homepage-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.homepage-card:hover .overlay {
+  opacity: 1;
+}
+.homepage-card .overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #191919;
+  text-align: center;
+  font-family: var(--font-quarrel);
+  font-size: 4.5em;
+  font-weight: bold;
+  line-height: 1;
+}
+.hero {
+	margin: 0;
+	padding: 1em;
+  text-align: center;
+	overflow: auto;
+	background: linear-gradient(
+	  315deg,
+	  rgb(7, 0, 7) 3%,
+	  rgb(3, 89, 29) 38%,
+	  rgb(229, 237, 236) 68%,
+	  rgb(239, 69, 69) 98%
+	);
+	animation: gradient 15s ease infinite;
+	background-size: 400% 400%;
+	background-attachment: fixed;
+  color: #FFF;
+}
+.hero .logo {
+  font-family: var(--font-rubik);
+  font-size: 5em;
+  margin-bottom: 0;
+}
+.hero .sublogo {
+  font-family: var(--font-quarrel);
+  font-size: 5em;
+  margin-bottom: 0;
+}
+.hero .description {
+  font-family: var(--font-raleway);
+  font-size: 1.5em;
+  line-height: 1.2;
+  width: 80%;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+}
+.text-gradient {
+  background: linear-gradient(
+    315deg,
+    rgb(255, 255, 255) 25%,
+    rgb(2, 2, 2) 90%,
+    rgb(255, 255, 255) 98%
+  ) repeat;
+  background-size: 400% 400%;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradient 15s ease infinite;
+  line-height: 1;
+}
+.main-content {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+}
+.unclickable-item {
+  pointer-events: none;
+  cursor: default;
+  color: var(--salmon);
+}
+.hg-menu {
+  position: relative;
+}
+.login-logout,
+.drawer-icon {
+  position: absolute;
+  top: 0;
+  right: 1em;
+  color: #FFF;
+  cursor: pointer;
+}
+.hide-mobile {
+  display: none;
+}
+.hide-desktop {
+  display: block;
+}
+.inspiration-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.inspiration-container .ant-card-body {
+  padding: 0 !important;
+}
+.inspiration-item {
+  flex: 0 0 calc(20% - 16px);
+  margin: 8px;
+}
+.inspiration-item .body {
+  padding: 1em;
+}
+.inspiration-cover {
+  height: 20em;
+  background-size: cover;
+  background-position: bottom;
+}
+.search-now {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.search-now-content {
+  text-align: center;
+  margin-top: 1em;
+  padding: 1em;
+}
+.search-now-content h2 {
+  margin-bottom: 1em;
+}
+#map {
+  width: 98vw; 
+  height: 400px; 
+  border: 1px solid #ccc; 
+}
+@media (max-width: 768px) {
+  .inspiration-item {
+    flex: 0 0 calc(50% - 16px);
+  }
+}
+@media (max-width: 576px) {
+  .inspiration-item {
+    flex: 0 0 100%;
+  }
+}
+@media screen and (min-width: 1190px) {
+  .hide-mobile {
+    display: block;
+  }
+  .hide-desktop {
+    display: none;
+  }
+  .ant-menu li.active {
+    background-color: var(--salmon);
+    color: #000;
+  }
+  .ant-menu li.inactive {
+    background-color: var(--dark-green) !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .homepage-card {
+    flex-basis: calc(50% - 20px);
+  }
+}
+
+/************************************************
+   ANT DESIGN OVERRIDE               @antOverride
+
+   The base styles for the page, text
+   and links. Includes utility class styles
+************************************************/
+:where(.css-dev-only-do-not-override-14wwjjs).ant-layout-header {
+  padding-inline: 0;
+}
+:where(.css-dev-only-do-not-override-14wwjjs).ant-menu-dark.ant-menu-horizontal >.ant-menu-item-selected {
+  background-color: var(--salmon);
+}
+:where(.css-dev-only-do-not-override-14wwjjs).ant-menu-dark.ant-menu-horizontal >.ant-menu-item:hover,
+:where(.css-dev-only-do-not-override-1jr9qlj).ant-menu-dark.ant-menu-horizontal >.ant-menu-item-selected,
+:where(.css-dev-only-do-not-override-1jr9qlj).ant-menu-dark.ant-menu-horizontal >.ant-menu-item-selected:hover,
+:where(.css-txh9fw).ant-menu-dark.ant-menu-horizontal >.ant-menu-item-selected,
+:where(.css-txh9fw).ant-menu-dark.ant-menu-horizontal >.ant-menu-item-selected:hover {
+  background-color: #ed685f;
+  color: #000;
+}
+:where(.css-dev-only-do-not-override-14wwjjs).ant-menu-dark {
+  background-color: var(--dark-green);
+}
+.unclickable-item :where(.css-dev-only-do-not-override-14wwjjs).ant-typography {
+  color: var(--salmon);
+}
+:where(.css-dev-only-do-not-override-1m62vyb).ant-btn-primary {
+  background-color: var(--salmon);
+}
+:where(.css-dev-only-do-not-override-1m62vyb).ant-menu-dark.ant-menu-horizontal >.ant-menu-item-selected {
+  background-color: var(--salmon);
+}
+@keyframes gradient {
+	0% {
+	  background-position: 0% 0%;
+	}
+	50% {
+	  background-position: 100% 100%;
+	}
+	100% {
+	  background-position: 0% 0%;
+  }
+}
+@keyframes reverseGradient {
+  0% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.budgetSection {
+  display: flex;
+  justify-content: center;
+  padding: 55px 15px 55px 15px;
+}
+
+.border {
+  border: rgb(0, 121, 6) solid 2px;
+  margin:  5px 40px 5px 5px;
+}
+
+.budgetDisplay {
+  border: black solid 3px;
+  padding: 8px 1px 10px 8px;
+  border-radius: 8px;
+  background-color: var(--salmon);
+  color: #000;
+}
+
+.spentDisplay {
+  border: black solid 3px;
+  padding: 8px 1px 10px 8px;
+  border-radius: 8px;
+  background-color: var(--salmon);
+  color: #000;
+}
+
+.spent {
+  margin-top: 8px;
+}
+
+.listName {
+  padding-top: 20px;
+  position: center;
+  
+}
+
+ .listPrice {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+  /* padding-left: 85%; */
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.margin {
+  margin: 0% 3% 0% 3%;
+}
+
+.marginTop {
+  margin: 0% 3% 0% 0%;
+}
+
+.footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 0 0 0;
+  background-color: #FE7B72;
+  }
+
+  .darkGreen {
+    background-color: #042A2B;
+  }
+
+  .aliceBlue {
+    background-color: #E3F2FD;
+  }
+
+  .aliceBlueText {
+    color: #E3F2FD;
+  }
+
+  .salmonText {
+    color: #FE7B72;
+  }
+/* ----------------------------------dasboard fireflies--------------------------------------------------------------------------------- */
+
+.img-300x300 {
+  width: 300px;
+  height: 300px;
+}
+
+.mainDash {
+
+:root {
+    --ring-size: 200px;
+    --angle: -360deg;
+}
+
+body {
+    background: linear-gradient(to top, #4c234a, #0f1532);
+    color: #20e3a2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    z-index: 0;
+    transform-style: preserve-3d;
+}
+
+.particle::after {
+    content: "";
+    width: 4px;
+    position: absolute;
+    height: 4px;
+    background: yellow;
+    border-radius: 100%;
+}
+
+@keyframes birth#1 {
+    0% {
+        transform: rotateZ(0) rotateY(0) translateX(120px);
+    }
+    50% {
+        transform: rotateZ(0deg) rotateY(0deg) translateX(120px);
+    }
+    100% {
+        transform: rotateZ(0) rotateY(0) translateX(120px);
+    }
+}
+/* ... Keyframes for birth#2 through birth#100 go here ... */
+
+/* Stars */
+
+#stars {
+    width: 2px;
+    height: 2px;
+    box-shadow: 1183px 927px rgba(165, 190, 195, 0.1), 1190px 448px rgba(184, 174, 131, 0.3), /* ... more box-shadow values ... */;
+    background: transparent;
+    border-radius: 100%;
+    animation: blink 2s infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#stars2 {
+    width: 3px;
+    height: 3px;
+    box-shadow: 1987px 303px rgba(165, 190, 195, 0.3), 1313px 1465px rgba(184, 174, 131, 0.9), /* ... more box-shadow values ... */;
+    background: transparent;
+    border-radius: 100%;
+    animation: blink 4s infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#stars3 {
+    width: 4px;
+    height: 4px;
+    box-shadow: 828px 1756px rgba(165, 190, 195, 0.4), 1376px 1509px rgba(184, 174, 131, 0.5), /* ... more box-shadow values ... */;
+    background: transparent;
+    border-radius: 100%;
+    animation: blink 3s infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+}
